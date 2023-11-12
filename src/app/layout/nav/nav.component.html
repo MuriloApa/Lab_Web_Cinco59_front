@@ -1,0 +1,30 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav
+    class="sidenav"
+    mode="side"
+    opened
+    fixedInViewport="true"
+    fixedTopGap="64"
+  >
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/">
+        <i class="material-icons">home</i>
+        Home</a>
+      <a mat-list-item routerLink="/pais">Países</a>
+      <a mat-list-item routerLink="/cidades">Cidades</a>
+      <a mat-list-item routerLink="/estados">Estados</a>
+      <a mat-list-item routerLink="/unidades">Unidades</a>
+      <a mat-list-item routerLink="/cargos">Cargos</a>
+      <a mat-list-item routerLink="/funcaos">Funções</a>
+      <a mat-list-item routerLink="/designacoes">Designações</a>
+      <a mat-list-item routerLink="/servidores">Servidores</a>
+      <a mat-list-item routerLink="/terceirizados">Terceirizados</a>
+      <a mat-list-item routerLink="/afastamentos">Afastamentos</a>
+      <a mat-list-item routerLink="/indisponibilidades">Indisponibilidades</a>
+      <a mat-list-item routerLink="/generos">Gêneros</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
