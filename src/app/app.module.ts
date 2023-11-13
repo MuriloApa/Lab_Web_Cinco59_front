@@ -13,9 +13,32 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RedDirective } from './directives/Red.directive';
 import { HomeComponent } from './pages/home/home.component';
-import { CitiesListComponent } from './pages/cities/cities-list/cities-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { PaisesListComponent } from './pages/pais/paises-list/paises-list.component';
+import { EstadosListComponent } from './pages/estados/estados-list/estados-list.component';
+import { UnidadesListComponent } from './pages/unidades/unidades-list/unidades-list.component';
+import { CargosListComponent } from './pages/cargos/cargos-list/cargos-list.component';
+import { DesignacoesListComponent } from './pages/designacoes/designacoes-list/designacoes-list.component';
+import { ServidoresListComponent } from './pages/servidores/servidores-list/servidores-list.component';
+import { TerceirizadosListComponent } from './pages/terceirizados/terceirizados-list/terceirizados-list.component';
+import { AfastamentosListComponent } from './pages/afastamentos/afastamentos-list/afastamentos-list.component';
+import { IndisponibilidadesListComponent } from './pages/indisponibilidades/indisponibilidades-list/indisponibilidades-list.component';
+import { GenerosListComponent } from './pages/generos/generos-list/generos-list.component';
+import { CidadesListComponent } from './pages/cidades/cidades-list/cidades-list.component';
+import { CidadesCreateComponent } from './pages/cidades/cidades-create/cidades-create.component';
+import { PaisesCreateComponent } from './pages/pais/paises-create/paises-create.component';
+import { FuncoesCreateComponent } from './pages/funcoes/funcoes-create/funcoes-create.component';
+import { GenerosCreateComponent } from './pages/generos/generos-create/generos-create.component';
+import { IndisponibilidadesCreateComponent } from './pages/indisponibilidades/indisponibilidades-create/indisponibilidades-create.component';
+import { AfastamentosCreateComponent } from './pages/afastamentos/afastamentos-create/afastamentos-create.component';
+import { TerceirizadosCreateComponent } from './pages/terceirizados/terceirizados-create/terceirizados-create.component';
+import { ServidoresCreateComponent } from './pages/servidores/servidores-create/servidores-create.component';
+import { DesignacoesCreateComponent } from './pages/designacoes/designacoes-create/designacoes-create.component';
+import { CargosCreateComponent } from './pages/cargos/cargos-create/cargos-create.component';
+import { UnidadesCreateComponent } from './pages/unidades/unidades-create/unidades-create.component';
+import { EstadosCreateComponent } from './pages/estados/estados-create/estados-create.component';
+import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.component';
 
 
 
@@ -27,7 +50,30 @@ import {MatButtonModule} from '@angular/material/button';
     NavComponent,
     RedDirective,
     HomeComponent,
-    CitiesListComponent,
+    PaisesListComponent,
+    EstadosListComponent,
+    UnidadesListComponent,
+    CargosListComponent,
+    DesignacoesListComponent,
+    FuncoesListComponent,
+    ServidoresListComponent,
+    TerceirizadosListComponent,
+    AfastamentosListComponent,
+    IndisponibilidadesListComponent,
+    GenerosListComponent,
+    CidadesListComponent,
+    CidadesCreateComponent,
+    PaisesCreateComponent,
+    FuncoesCreateComponent,
+    GenerosCreateComponent,
+    IndisponibilidadesCreateComponent,
+    AfastamentosCreateComponent,
+    TerceirizadosCreateComponent,
+    ServidoresCreateComponent,
+    DesignacoesCreateComponent,
+    CargosCreateComponent,
+    UnidadesCreateComponent,
+    EstadosCreateComponent,
   ],
   imports: [
     BrowserModule,

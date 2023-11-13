@@ -1,12 +1,17 @@
 .sidenav{
-  /* background-color: #3F51B5; */
+  background-color: #eeeeee; //#dcdcdc 3F51B5
   width: 200px;
 
   a {
-    
+    color: white;
 
     i {
+      color: black;
       padding-right: 10px;
+    }
+
+    span {
+      color: black;
     }
   }
 
