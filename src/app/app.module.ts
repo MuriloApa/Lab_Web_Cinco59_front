@@ -25,8 +25,6 @@ import { TerceirizadosListComponent } from './pages/terceirizados/terceirizados-
 import { AfastamentosListComponent } from './pages/afastamentos/afastamentos-list/afastamentos-list.component';
 import { IndisponibilidadesListComponent } from './pages/indisponibilidades/indisponibilidades-list/indisponibilidades-list.component';
 import { GenerosListComponent } from './pages/generos/generos-list/generos-list.component';
-import { CidadesListComponent } from './pages/cidades/cidades-list/cidades-list.component';
-import { CidadesCreateComponent } from './pages/cidades/cidades-create/cidades-create.component';
 import { PaisesCreateComponent } from './pages/pais/paises-create/paises-create.component';
 import { FuncoesCreateComponent } from './pages/funcoes/funcoes-create/funcoes-create.component';
 import { GenerosCreateComponent } from './pages/generos/generos-create/generos-create.component';
@@ -39,7 +37,10 @@ import { CargosCreateComponent } from './pages/cargos/cargos-create/cargos-creat
 import { UnidadesCreateComponent } from './pages/unidades/unidades-create/unidades-create.component';
 import { EstadosCreateComponent } from './pages/estados/estados-create/estados-create.component';
 import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.component';
-
+import { MunicipiosListComponent } from './pages/municipios/municipios-list/municipios-list.component';
+import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -61,8 +62,6 @@ import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.
     AfastamentosListComponent,
     IndisponibilidadesListComponent,
     GenerosListComponent,
-    CidadesListComponent,
-    CidadesCreateComponent,
     PaisesCreateComponent,
     FuncoesCreateComponent,
     GenerosCreateComponent,
@@ -74,6 +73,8 @@ import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.
     CargosCreateComponent,
     UnidadesCreateComponent,
     EstadosCreateComponent,
+    MunicipiosListComponent,
+    MunicipiosCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +85,9 @@ import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.
     MatListModule,
     MatSidenavModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { CidadesListComponent } from './pages/cidades/cidades-list/cidades-list.component';
-import { CidadesCreateComponent } from './pages/cidades/cidades-create/cidades-create.component';
 import { AfastamentosListComponent } from './pages/afastamentos/afastamentos-list/afastamentos-list.component';
 import { AfastamentosCreateComponent } from './pages/afastamentos/afastamentos-create/afastamentos-create.component';
 import { PaisesListComponent } from './pages/pais/paises-list/paises-list.component';
@@ -25,6 +23,8 @@ import { GenerosListComponent } from './pages/generos/generos-list/generos-list.
 import { GenerosCreateComponent } from './pages/generos/generos-create/generos-create.component';
 import { IndisponibilidadesListComponent } from './pages/indisponibilidades/indisponibilidades-list/indisponibilidades-list.component';
 import { IndisponibilidadesCreateComponent } from './pages/indisponibilidades/indisponibilidades-create/indisponibilidades-create.component';
+import { MunicipiosListComponent } from './pages/municipios/municipios-list/municipios-list.component';
+import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -109,10 +109,10 @@ const routes: Routes = [
   },
 
   {
-    path: 'cidades',
+    path: 'municipios',
     children: [
-      { path: '', component: CidadesListComponent },
-      { path: 'create', component: CidadesCreateComponent },
+      { path: '', component:  MunicipiosListComponent},
+      { path: 'create', component:  MunicipiosCreateComponent},
     ],
   },
 
