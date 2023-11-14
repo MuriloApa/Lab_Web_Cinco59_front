@@ -37,7 +37,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'pais',
+    path: 'paises',
     children: [
       { path: '', component: PaisesListComponent },
       { path: 'create', component: PaisesCreateComponent },
