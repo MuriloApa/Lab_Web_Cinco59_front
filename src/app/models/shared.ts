@@ -1,5 +1,5 @@
 export interface ResponseDataList<T> {
-  item: T[];
+  items: T[];
   meta: {
     totalItens: number,
     itemCount: number,

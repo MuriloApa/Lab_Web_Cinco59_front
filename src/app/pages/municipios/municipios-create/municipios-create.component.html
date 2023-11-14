@@ -1,5 +1,21 @@
 <mat-card>
   <mat-card-header><mat-card-title>Cadastrar</mat-card-title></mat-card-header>
+  <mat-card-content>
+    <form action="">
+      <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Nome</mat-label>
+        <input matInput name="nome" type="text" placeholder="Nome do município">
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select name="estado" formControlName="estado">
+            <mat-option *ngFor="let estado of estados" [value]="estado">
+            {{estado.sigla}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button (click)="save()" color="primary">Cadastrar</button>
 

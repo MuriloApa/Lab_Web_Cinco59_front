@@ -41,7 +41,10 @@ import { MunicipiosListComponent } from './pages/municipios/municipios-list/muni
 import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -87,7 +90,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

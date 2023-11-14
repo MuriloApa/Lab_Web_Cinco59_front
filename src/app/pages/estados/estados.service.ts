@@ -10,12 +10,12 @@ import { ResponseDataList } from 'src/app/models/shared';
 })
 export class EstadosService {
 
-  private baseApi: string = '/estados';
+  private baseApi: string = '/estado';
 
   constructor(private readonly http: HttpClient) { }
 
   list(): Observable<Estado[]>{
     const params = new HttpParams().set('limit', '99');
-    return this.http.get<ResponseDataList<Estado>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.item))
+    return this.http.get<ResponseDataList<Estado>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.items))
   }
 }

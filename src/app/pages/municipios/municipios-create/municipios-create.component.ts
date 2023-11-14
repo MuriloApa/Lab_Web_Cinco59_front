@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EstadosService } from '../../estados/estados.service';
 import { Estado } from 'src/app/models/estado.model';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-municipios-create',
@@ -11,6 +12,8 @@ import { Estado } from 'src/app/models/estado.model';
 })
 export class MunicipiosCreateComponent implements OnInit {
   estados: Estado[] = [];
+
+  selectedEstado: any;
 
   constructor(
     private readonly router: Router,
@@ -24,6 +27,7 @@ export class MunicipiosCreateComponent implements OnInit {
 
   save(): void {
     this.municipiosService.showMessage('Município cadastrado com sucesso!');
+    this.estados.forEach((estado) => console.log(estado))
   }
 
   cancel(): void {
