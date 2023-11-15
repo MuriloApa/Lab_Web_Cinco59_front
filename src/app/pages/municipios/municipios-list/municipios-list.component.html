@@ -39,13 +39,18 @@
       <td mat-cell *matCellDef="let row">{{ row.estado.sigla }}</td>
     </ng-container>
 
+    <ng-container matColumnDef="regiao">
+      <th mat-header-cell *matHeaderCellDef>Região</th>
+      <td mat-cell *matCellDef="let row">{{ row.regiao }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let row">
         <a routerLink="/municipios/{{row.id}}/edit" class="edit">
           <i class="material-icons">edit</i>
         </a>
-        <a routerLink="/municipios/{{row.id}}/delete" class="delete">
+        <a href="javascript:void(0)" (click)="openDeleteDialogo(row)" class="delete">
           <i class="material-icons">delete</i>
         </a>
       </td>

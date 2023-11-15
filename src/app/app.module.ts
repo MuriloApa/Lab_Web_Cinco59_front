@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -48,6 +47,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
+import { MunicipiosDeleteComponent } from './pages/municipios/municipios-delete/municipios-delete.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     EstadosCreateComponent,
     MunicipiosListComponent,
     MunicipiosCreateComponent,
+    MunicipiosEditComponent,
+    MunicipiosDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +105,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTableModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

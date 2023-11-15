@@ -25,6 +25,7 @@ import { IndisponibilidadesListComponent } from './pages/indisponibilidades/indi
 import { IndisponibilidadesCreateComponent } from './pages/indisponibilidades/indisponibilidades-create/indisponibilidades-create.component';
 import { MunicipiosListComponent } from './pages/municipios/municipios-list/municipios-list.component';
 import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
+import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -113,6 +114,7 @@ const routes: Routes = [
     children: [
       { path: '', component:  MunicipiosListComponent},
       { path: 'create', component:  MunicipiosCreateComponent},
+      { path: ':id/edit', component: MunicipiosEditComponent},
     ],
   },
 
