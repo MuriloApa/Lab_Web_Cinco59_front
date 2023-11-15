@@ -1,18 +1,39 @@
 <mat-card>
-  <mat-card-header><mat-card-title>Cadastrar</mat-card-title></mat-card-header>
+  <mat-card-header><mat-card-title>Cadastrar novo município</mat-card-title></mat-card-header>
   <mat-card-content>
-    <form action="">
-      <mat-form-field appearance="outline" style="width: 100%;">
-        <mat-label>Nome</mat-label>
-        <input matInput name="nome" type="text" placeholder="Nome do município">
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label >Nome</mat-label>
+        <input matInput name="nome" type="text" placeholder="Nome do município" formControlName="nome">
+        <mat-error *ngIf="form.get('nome')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="form.get('nome')?.hasError('minlength')">
+          Nome do município deve conter ao menos 3 letras
+        </mat-error>
       </mat-form-field>
-      <mat-form-field  appearance="outline">
+      <mat-form-field appearance="outline">
         <mat-label>Estado</mat-label>
-        <mat-select name="estado" formControlName="estado">
-            <mat-option *ngFor="let estado of estados" [value]="estado">
+        <mat-select name="estado" formControlName="estado" formControlName="estado">
+          <mat-option *ngFor="let estado of estados" [value]="{id: estado.id}">
             {{estado.sigla}}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>Sigla</mat-label>
+        <input matInput name="sigla" placeholder="Sigla do município" type="text" formControlName="sigla">
+        <mat-error *ngIf="form.get('sigla')?.hasError('minlength') || form.get('sigla')?.hasError('maxlength')">Sigla deve conter 3 caracteres</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>DDD</mat-label>
+        <input matInput name="ddd" placeholder="DDD do município" type="text" formControlName="ddd">
+        <mat-error *ngIf="form.get('ddd')?.hasError('minlength')  || form.get('ddd')?.hasError('maxlength')">DDD deve conter 2 caracteres números</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>Região</mat-label>
+        <input matInput name="regiao" placeholder="Região do município" type="text" formControlName="regiao">
+        <mat-error *ngIf="form.get('regiao')?.hasError('minlength')">Região deve conter ao menos 3 letras</mat-error>
       </mat-form-field>
     </form>
   </mat-card-content>
