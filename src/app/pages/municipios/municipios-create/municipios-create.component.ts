@@ -38,7 +38,7 @@ export class MunicipiosCreateComponent implements OnInit {
       estado: [null, [Validators.required]],
       sigla: [null, [ Validators.maxLength(3), Validators.minLength(3)]],
       ddd: [null, [ Validators.maxLength(2), Validators.minLength(2)]],
-      regiao: [null, [Validators.minLength(3)]],
+      regiao: [null, [Validators.required, Validators.minLength(3)]],
     });
   }
 
