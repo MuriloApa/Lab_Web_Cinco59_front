@@ -1,5 +1,15 @@
 <mat-card>
   <mat-card-header><mat-card-title>Cadastrar</mat-card-title></mat-card-header>
+
+  <mat-card-content>
+    <form>
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label>Nome</mat-label>
+        <input matInput name="nome" type="text" placeholder="Nome do país">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
   <mat-card-actions>
     <button mat-raised-button (click)="save()" color="primary">Cadastrar</button>
 

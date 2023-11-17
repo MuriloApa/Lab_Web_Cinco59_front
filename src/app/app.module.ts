@@ -50,6 +50,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
 import { MunicipiosDeleteComponent } from './pages/municipios/municipios-delete/municipios-delete.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { PageComponent } from './layout/page/page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
+import { PaisesDeleteComponent } from './pages/pais/paises-delete/paises-delete.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +89,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MunicipiosCreateComponent,
     MunicipiosEditComponent,
     MunicipiosDeleteComponent,
+    PageComponent,
+    LoginComponent,
+    PaisesEditComponent,
+    PaisesDeleteComponent,
   ],
   imports: [
     BrowserModule,

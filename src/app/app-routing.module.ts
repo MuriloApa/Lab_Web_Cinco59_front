@@ -26,9 +26,14 @@ import { IndisponibilidadesCreateComponent } from './pages/indisponibilidades/in
 import { MunicipiosListComponent } from './pages/municipios/municipios-list/municipios-list.component';
 import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
 import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
+import { LoginComponent } from './pages/login/login.component';
+import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+
+  { path: 'login', component: LoginComponent},
+
   {
     path: 'afastamentos',
     children: [
@@ -42,6 +47,7 @@ const routes: Routes = [
     children: [
       { path: '', component: PaisesListComponent },
       { path: 'create', component: PaisesCreateComponent },
+      { path: ':id/edit', component: PaisesEditComponent}
     ],
   },
 
