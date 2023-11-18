@@ -125,4 +125,8 @@ export class CargosListComponent implements OnInit, AfterViewInit, OnDestroy{
       }
     })
   }
+
+  exibeAtivo(ativo: boolean){
+    return ativo ? 'Sim' : 'Não' ;
+  }
 }
