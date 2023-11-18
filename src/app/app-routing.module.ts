@@ -28,17 +28,19 @@ import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/
 import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
+import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
 
   {
     path: 'afastamentos',
     children: [
       { path: '', component: AfastamentosListComponent },
       { path: 'create', component: AfastamentosCreateComponent },
+      
     ],
   },
 
@@ -47,7 +49,7 @@ const routes: Routes = [
     children: [
       { path: '', component: PaisesListComponent },
       { path: 'create', component: PaisesCreateComponent },
-      { path: ':id/edit', component: PaisesEditComponent}
+      { path: ':id/edit', component: PaisesEditComponent },
     ],
   },
 
@@ -56,6 +58,7 @@ const routes: Routes = [
     children: [
       { path: '', component: EstadosListComponent },
       { path: 'create', component: EstadosCreateComponent },
+      { path: ':id/edit', component: EstadosEditComponent },
     ],
   },
 
@@ -118,9 +121,9 @@ const routes: Routes = [
   {
     path: 'municipios',
     children: [
-      { path: '', component:  MunicipiosListComponent},
-      { path: 'create', component:  MunicipiosCreateComponent},
-      { path: ':id/edit', component: MunicipiosEditComponent},
+      { path: '', component: MunicipiosListComponent },
+      { path: 'create', component: MunicipiosCreateComponent },
+      { path: ':id/edit', component: MunicipiosEditComponent },
     ],
   },
 

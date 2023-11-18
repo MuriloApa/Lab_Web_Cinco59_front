@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Estado } from 'src/app/models/estado.model';
@@ -12,7 +12,7 @@ import { catchError } from 'rxjs';
   templateUrl: './municipios-edit.component.html',
   styleUrls: ['./municipios-edit.component.scss']
 })
-export class MunicipiosEditComponent {
+export class MunicipiosEditComponent implements OnInit{
 
   id!: number;
   estados: Estado[] = [];

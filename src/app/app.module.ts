@@ -54,6 +54,9 @@ import { PageComponent } from './layout/page/page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
 import { PaisesDeleteComponent } from './pages/pais/paises-delete/paises-delete.component';
+import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.component';
+import { EstadosDeleteComponent } from './pages/estados/estados-delete/estados-delete.component';
+
 
 @NgModule({
   declarations: [
@@ -93,6 +96,9 @@ import { PaisesDeleteComponent } from './pages/pais/paises-delete/paises-delete.
     LoginComponent,
     PaisesEditComponent,
     PaisesDeleteComponent,
+    EstadosEditComponent,
+    EstadosDeleteComponent,
+    
   ],
   imports: [
     BrowserModule,

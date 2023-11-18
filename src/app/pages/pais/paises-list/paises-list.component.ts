@@ -21,7 +21,6 @@ import {
   startWith,
   switchMap,
 } from 'rxjs';
-import { Municipio } from 'src/app/models/municipio.model';
 import { MatDialog } from '@angular/material/dialog';
 import { Pais } from 'src/app/models/pais.model';
 import { PaisService } from '../pais.service';
@@ -114,6 +113,7 @@ export class PaisesListComponent implements  OnInit, AfterViewInit, OnDestroy{
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
+        console.log(pais.id)
         this.paisesService.delete(pais.id).subscribe(() => {
           this.paginator.firstPage();
           this.refresh.next(true);
@@ -125,5 +125,5 @@ export class PaisesListComponent implements  OnInit, AfterViewInit, OnDestroy{
     })
   }
 
-  
+
 }
