@@ -105,7 +105,7 @@ export class MunicipiosListComponent
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
-  navigateToCargosCreate(): void {
+  navigateToMunicipiosCreate(): void {
     this.router.navigate(['/municipios/create']);
   }
 

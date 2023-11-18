@@ -13,9 +13,4 @@ import { environment } from 'src/environments/environment';
 export class PaisService extends GenericService<Pais> {
 
   override baseApi: string = '/pais';
-
-  listCampo(): Observable<Pais[]>{
-    const params = new HttpParams().set('limit', '99');
-    return this.http.get<ResponseDataList<Pais>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.items))
-  }
 }

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { ResponseDataList } from 'src/app/models/shared';
 import { environment } from 'src/environments/environment';
 
@@ -64,5 +64,10 @@ export class GenericService<T> {
       verticalPosition: 'top',
       panelClass: isError ? ['msg-error'] : ['msg-success'],
     });
+  }
+
+  listCampo(): Observable<T[]>{
+    const params = new HttpParams().set('limit', '99');
+    return this.http.get<ResponseDataList<T>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.items))
   }
 }

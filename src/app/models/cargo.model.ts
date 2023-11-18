@@ -1,8 +1,9 @@
-export interface Estado {
+export interface Cargo {
   id: number;
   nome: string;
   sigla: string;
-  regiao: string;
+  ordenacaoForcada: number;
+  ativo: boolean | string;
   dateCreated: Date;
   lastUpdate: Date;
 }

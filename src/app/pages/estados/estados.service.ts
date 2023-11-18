@@ -13,8 +13,4 @@ export class EstadosService extends GenericService<Estado> {
 
   override baseApi: string = '/estado';
 
-  listCampo(): Observable<Estado[]>{
-    const params = new HttpParams().set('limit', '99');
-    return this.http.get<ResponseDataList<Estado>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.items))
-  }
 }

@@ -47,6 +47,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+
 import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
 import { MunicipiosDeleteComponent } from './pages/municipios/municipios-delete/municipios-delete.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -56,6 +59,8 @@ import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.compon
 import { PaisesDeleteComponent } from './pages/pais/paises-delete/paises-delete.component';
 import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.component';
 import { EstadosDeleteComponent } from './pages/estados/estados-delete/estados-delete.component';
+import { CargosEditComponent } from './pages/cargos/cargos-edit/cargos-edit.component';
+import { CargosDeleteComponent } from './pages/cargos/cargos-delete/cargos-delete.component';
 
 
 @NgModule({
@@ -98,7 +103,9 @@ import { EstadosDeleteComponent } from './pages/estados/estados-delete/estados-d
     PaisesDeleteComponent,
     EstadosEditComponent,
     EstadosDeleteComponent,
-    
+    CargosEditComponent,
+    CargosDeleteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -120,6 +127,8 @@ import { EstadosDeleteComponent } from './pages/estados/estados-delete/estados-d
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
