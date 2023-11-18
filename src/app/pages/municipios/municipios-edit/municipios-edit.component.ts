@@ -29,7 +29,7 @@ export class MunicipiosEditComponent {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id')!;
-    this.estadosService.list().subscribe((resp) => {
+    this.estadosService.listCampo().subscribe((resp) => {
       this.estados = resp;
       this.estados.sort((a: Estado, b: Estado) =>
         a.sigla.localeCompare(b.sigla)

@@ -4,17 +4,16 @@ import {environment} from './../../../environments/environment'
 import { Observable, map } from 'rxjs';
 import { Estado } from 'src/app/models/estado.model';
 import { ResponseDataList } from 'src/app/models/shared';
+import { GenericService } from 'src/app/shared/Generic.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstadosService {
+export class EstadosService extends GenericService<Estado> {
 
-  private baseApi: string = '/estado';
+  override baseApi: string = '/estado';
 
-  constructor(private readonly http: HttpClient) { }
-
-  list(): Observable<Estado[]>{
+  listCampo(): Observable<Estado[]>{
     const params = new HttpParams().set('limit', '99');
     return this.http.get<ResponseDataList<Estado>>(environment.baseUrl + this.baseApi, {params}).pipe(map((resp) => resp.items))
   }
