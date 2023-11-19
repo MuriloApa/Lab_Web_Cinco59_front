@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CargosService } from '../cargos.service';
 import { Cargo } from 'src/app/models/cargo.model';
 import { catchError } from 'rxjs';
+import { regexValidator } from 'src/app/shared/validators/regex.validator';
 
 @Component({
   selector: 'app-cargos-create',
@@ -22,9 +23,9 @@ export class CargosCreateComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
-      sigla: [null, [Validators.required, Validators.minLength(2), this.siglaValidator(/^[A-Z]+$/)]],
+      sigla: [null, [Validators.required, Validators.minLength(2), regexValidator(/^[A-Z]+$/)]],
       ordenacaoForcada: [null, [Validators.required]],
-      ativo: [true, [Validators.required]],
+      ativo: ['true', [Validators.required]],
     });
   }
 
@@ -61,12 +62,4 @@ export class CargosCreateComponent implements OnInit {
     this.router.navigate(['/cargos']);
   }
 
-
-  /* Função baseada no exemplo disponibilizado na documentação do Angular para validações customizáveis */
-  siglaValidator(expression: RegExp): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const forbidden = expression.test(control.value);
-      return forbidden ?  null : { forbiddenName: { value: control.value } };
-    };
-  }
 }

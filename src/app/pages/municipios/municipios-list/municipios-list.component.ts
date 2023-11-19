@@ -14,7 +14,6 @@ import {
   Subscription,
   catchError,
   debounceTime,
-  distinct,
   distinctUntilChanged,
   map,
   merge,
@@ -105,10 +104,6 @@ export class MunicipiosListComponent
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
-  navigateToMunicipiosCreate(): void {
-    this.router.navigate(['/municipios/create']);
-  }
-
   openDeleteDialogo(municipio: Municipio): void {
     const dialogRef = this.dialog.open(MunicipiosDeleteComponent, {
       data: municipio,
@@ -125,6 +120,10 @@ export class MunicipiosListComponent
         })
       }
     })
+  }
+
+  navigateToMunicipiosCreate(): void {
+    this.router.navigate(['/municipios/create']);
   }
 
 }

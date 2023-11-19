@@ -30,6 +30,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
 import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.component';
 import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indisponibilidades-edit/indisponibilidades-edit.component';
+import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -84,6 +85,7 @@ const routes: Routes = [
     children: [
       { path: '', component: FuncoesListComponent },
       { path: 'create', component: FuncoesCreateComponent },
+      { path: ':id/edit', component: FuncoesEditComponent}
     ],
   },
 

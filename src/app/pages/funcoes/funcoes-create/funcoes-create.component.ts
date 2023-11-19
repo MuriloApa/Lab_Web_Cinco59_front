@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
+import { FuncoesService } from '../funcoes.service';
+import { Funcao } from 'src/app/models/funcao.model';
+import { TipoTelefone } from 'src/app/shared/enums/tipoTelefone.enum';
 
 @Component({
   selector: 'app-funcoes-create',
@@ -8,14 +13,58 @@ import { Router } from '@angular/router';
 })
 export class FuncoesCreateComponent implements OnInit{
 
-  constructor(private readonly router: Router){}
+  unidades!: number[];
+  form: FormGroup = new FormGroup({});
+
+  constructor(
+    private readonly router: Router,
+    private readonly fb: FormBuilder,
+    private readonly service: FuncoesService
+  ) {}
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      nome: [null, [Validators.required, Validators.minLength(3)]],
+      sigla: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
+      exclusiva: [null, [Validators.required]],
+      ordenacaoForcada: [null, [Validators.required]],
+      ativa: ['true', [Validators.required]],
+      telefone: this.fb.group({
+        numero: [null, [Validators.required]],
+        tipo: [null, [Validators.required]],
+        unidade: [null]
+      })
+    })
 
   }
 
-  save(): void{
-
+  save(): void {
+    this.form.markAllAsTouched();
+    if (this.form.valid) {
+      const funcao: Funcao = this.form.value;
+      this.service
+        .create(funcao)
+        .pipe(
+          catchError((err) => {
+            this.service.showMessage(
+              'Função não pode ser cadastrado!',
+              true
+            );
+            return err;
+          })
+        )
+        .subscribe((resp) => {
+          this.service.showMessage(
+            'Função cadastrado com sucesso!'
+          );
+          this.router.navigate(['/funcoes']);
+        });
+    } else {
+      this.service.showMessage(
+        'Existem campos inválidos no formulário!',
+        true
+      );
+    }
   }
 
   cancel(): void{

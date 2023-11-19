@@ -63,6 +63,8 @@ import { CargosEditComponent } from './pages/cargos/cargos-edit/cargos-edit.comp
 import { CargosDeleteComponent } from './pages/cargos/cargos-delete/cargos-delete.component';
 import { IndisponibilidadesDeleteComponent } from './pages/indisponibilidades/indisponibilidades-delete/indisponibilidades-delete.component';
 import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indisponibilidades-edit/indisponibilidades-edit.component';
+import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
+import { FuncoesDeleteComponent } from './pages/funcoes/funcoes-delete/funcoes-delete.component';
 
 
 @NgModule({
@@ -109,6 +111,8 @@ import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indi
     CargosDeleteComponent,
     IndisponibilidadesDeleteComponent,
     IndisponibilidadesEditComponent,
+    FuncoesEditComponent,
+    FuncoesDeleteComponent,
 
   ],
   imports: [
