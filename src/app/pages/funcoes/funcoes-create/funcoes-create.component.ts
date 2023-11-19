@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import { regexValidator } from 'src/app/shared/validators/regex.validator';
+
+import { TipoTelefone } from 'src/app/shared/enums/tipoTelefone.enum';
 import { FuncoesService } from '../funcoes.service';
 import { Funcao } from 'src/app/models/funcao.model';
-import { TipoTelefone } from 'src/app/shared/enums/tipoTelefone.enum';
-import { regexValidator } from 'src/app/shared/validators/regex.validator';
 
 @Component({
   selector: 'app-funcoes-create',
@@ -44,7 +45,6 @@ export class FuncoesCreateComponent implements OnInit{
       const funcao: Funcao = this.form.value;
       funcao.exclusiva = funcao.exclusiva === 'true';
       funcao.ativa = funcao.ativa === 'true';
-      console.log(funcao)
       this.service
         .create(funcao)
         .pipe(

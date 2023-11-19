@@ -31,6 +31,7 @@ import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.compon
 import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.component';
 import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indisponibilidades-edit/indisponibilidades-edit.component';
 import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
+import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -118,6 +119,7 @@ const routes: Routes = [
     children: [
       { path: '', component: GenerosListComponent },
       { path: 'create', component: GenerosCreateComponent },
+      { path: ':id/edit', component: GenerosEditComponent}
     ],
   },
 

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError } from 'rxjs';
+
 import { Pais } from 'src/app/models/pais.model';
 import { PaisService } from '../pais.service';
-import { catchError } from 'rxjs';
+
 
 @Component({
   selector: 'app-paises-edit',

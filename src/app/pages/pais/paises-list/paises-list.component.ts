@@ -22,6 +22,7 @@ import {
   switchMap,
 } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+
 import { Pais } from 'src/app/models/pais.model';
 import { PaisService } from '../pais.service';
 import { PaisesDeleteComponent } from '../paises-delete/paises-delete.component';
@@ -102,9 +103,7 @@ export class PaisesListComponent implements  OnInit, AfterViewInit, OnDestroy{
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
-  navigateToPaisesCreate(): void{
-    this.router.navigate(['/paises/create']);
-  }
+
 
   openDeleteDialogo(pais: Pais): void {
     const dialogRef = this.dialog.open(PaisesDeleteComponent, {
@@ -125,5 +124,8 @@ export class PaisesListComponent implements  OnInit, AfterViewInit, OnDestroy{
     })
   }
 
+  navigateToPaisesCreate(): void{
+    this.router.navigate(['/paises/create']);
+  }
 
 }
