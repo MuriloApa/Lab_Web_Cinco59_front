@@ -25,11 +25,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { CargosService } from '../cargos.service';
 import { Cargo } from 'src/app/models/cargo.model';
 import { CargosDeleteComponent } from '../cargos-delete/cargos-delete.component';
+import { exibeAtivo } from 'src/app/shared/functions/exibeAtivo';
 
 @Component({
   selector: 'app-cargos-list',
   templateUrl: './cargos-list.component.html',
-  styleUrls: ['./cargos-list.component.scss']
+  styleUrls: ['./cargos-list.component.scss'],
 })
 export class CargosListComponent implements OnInit, AfterViewInit, OnDestroy{
 
@@ -128,5 +129,5 @@ export class CargosListComponent implements OnInit, AfterViewInit, OnDestroy{
 
   exibeAtivo(ativo: boolean){
     return ativo ? 'Sim' : 'Não' ;
-  }
+  }  
 }

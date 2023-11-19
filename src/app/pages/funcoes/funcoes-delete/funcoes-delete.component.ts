@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Funcao } from 'src/app/models/funcao.model';
 
 @Component({
   selector: 'app-funcoes-delete',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class FuncoesDeleteComponent {
 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Funcao) {}
+
+  ngOnInit(): void {
+
+  }
 }

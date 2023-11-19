@@ -18,13 +18,13 @@
       <mat-form-field appearance="outline">
         <mat-label>Sigla</mat-label>
         <input matInput name="sigla" placeholder="Sigla do cargo" type="text" formControlName="sigla">
-        <mat-error *ngIf="form.get('sigla')?.hasError('minlength')">Sigla deve conter 2 caracteres</mat-error>
+        <mat-error *ngIf="form.get('sigla')?.hasError('minlength') || form.get('sigla')?.hasError('maxlength')">Sigla deve conter 3 caracteres</mat-error>
         <mat-error *ngIf="form.get('sigla')?.hasError('forbiddenName')">Todos os caracteres devem ser maiúsculos</mat-error>
       </mat-form-field>
 
       <div class="radio" style="display: inline;">
         <mat-label>Exclusiva</mat-label>
-        <mat-radio-group formControlName="ativo">
+        <mat-radio-group formControlName="exclusiva">
           <mat-radio-button value="true" checked>Sim</mat-radio-button>
           <mat-radio-button value="false">Não</mat-radio-button>
         </mat-radio-group>
@@ -45,12 +45,12 @@
         </mat-radio-group>
       </div>
 
-      <div class="telefone" formGroupName="telefone">
+      <div class="div-telefone" formGroupName="telefone">
         <mat-form-field>
           <mat-label>Telefone</mat-label>
-          <input matInput placeholder="Número do telefone" type="text" formControlName="telefone">
+          <input matInput placeholder="Número do telefone" type="text" formControlName="numero">
         </mat-form-field>
-
+        <mat-error *ngIf="form.get('telefone')?.get('numero')?.hasError('forbiddenName')">Telefone deve conter de 8 a 11 números</mat-error>
       </div>
 
     </form>

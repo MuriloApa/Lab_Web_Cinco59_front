@@ -127,4 +127,8 @@ export class FuncoesListComponent implements OnInit, AfterViewInit, OnDestroy {
   navigateToFuncoesCreate(): void{
     this.router.navigate(['/funcoes/create']);
   }
+
+  exibeAtivo(ativo: boolean){
+    return ativo ? 'Sim' : 'Não' ;
+  }
 }

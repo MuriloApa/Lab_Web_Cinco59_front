@@ -5,6 +5,7 @@ import { catchError } from 'rxjs';
 import { FuncoesService } from '../funcoes.service';
 import { Funcao } from 'src/app/models/funcao.model';
 import { TipoTelefone } from 'src/app/shared/enums/tipoTelefone.enum';
+import { regexValidator } from 'src/app/shared/validators/regex.validator';
 
 @Component({
   selector: 'app-funcoes-create',
@@ -25,23 +26,25 @@ export class FuncoesCreateComponent implements OnInit{
   ngOnInit(): void {
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
-      sigla: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3)]],
-      exclusiva: [null, [Validators.required]],
+      sigla: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(3), regexValidator(/^[A-Z]+$/)]],
+      exclusiva: ['false', [Validators.required]],
       ordenacaoForcada: [null, [Validators.required]],
       ativa: ['true', [Validators.required]],
       telefone: this.fb.group({
-        numero: [null, [Validators.required]],
-        tipo: [null, [Validators.required]],
+        numero: [null, [Validators.required, regexValidator(/^\d{8,11}$/)]],
+        tipo: [TipoTelefone.FUNCIONAL, [Validators.required]],
         unidade: [null]
       })
     })
-
   }
 
   save(): void {
     this.form.markAllAsTouched();
     if (this.form.valid) {
       const funcao: Funcao = this.form.value;
+      funcao.exclusiva = funcao.exclusiva === 'true';
+      funcao.ativa = funcao.ativa === 'true';
+      console.log(funcao)
       this.service
         .create(funcao)
         .pipe(

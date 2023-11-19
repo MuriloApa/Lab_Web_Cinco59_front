@@ -4,7 +4,7 @@ export interface Funcao {
   sigla: string;
   exclusiva: boolean | string;
   ordenacaoForcada: number;
-  ativo: boolean | string;
+  ativa: boolean | string;
   telefone: any;
   dateCreated: Date;
   lastUpdate: Date;
