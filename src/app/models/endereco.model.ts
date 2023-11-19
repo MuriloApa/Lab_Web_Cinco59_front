@@ -1,6 +1,7 @@
 import { Municipio } from "./municipio.model";
 
 export interface Endereco {
+  id: number;
   CEP: string,
   logradouro: string,
   numero: number,
@@ -8,4 +9,6 @@ export interface Endereco {
   observacao: string,
   municipio: Municipio;
   tipo: string,
+  dateCreated: Date;
+  lastUpdate: Date;
 }

@@ -65,6 +65,8 @@ import { IndisponibilidadesDeleteComponent } from './pages/indisponibilidades/in
 import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indisponibilidades-edit/indisponibilidades-edit.component';
 import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
 import { FuncoesDeleteComponent } from './pages/funcoes/funcoes-delete/funcoes-delete.component';
+import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.component';
+import { GenerosDeleteComponent } from './pages/generos/generos-delete/generos-delete.component';
 
 
 @NgModule({
@@ -113,6 +115,8 @@ import { FuncoesDeleteComponent } from './pages/funcoes/funcoes-delete/funcoes-d
     IndisponibilidadesEditComponent,
     FuncoesEditComponent,
     FuncoesDeleteComponent,
+    GenerosEditComponent,
+    GenerosDeleteComponent,
 
   ],
   imports: [
