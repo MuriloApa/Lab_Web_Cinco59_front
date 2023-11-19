@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pais } from 'src/app/models/pais.model';
@@ -10,7 +10,7 @@ import { catchError } from 'rxjs';
   templateUrl: './paises-edit.component.html',
   styleUrls: ['./paises-edit.component.scss']
 })
-export class PaisesEditComponent {
+export class PaisesEditComponent implements OnInit{
 
   id!: number;
   form: FormGroup = new FormGroup({});

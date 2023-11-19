@@ -1,30 +1,39 @@
-import { Indisponibilidade } from './../../../models/indisponibilidade.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError } from 'rxjs';
+import { Indisponibilidade } from 'src/app/models/indisponibilidade.model';
 import { IndisponibilidadesService } from '../indisponibilidades.service';
 
 @Component({
-  selector: 'app-indisponibilidades-create',
-  templateUrl: './indisponibilidades-create.component.html',
-  styleUrls: ['./indisponibilidades-create.component.scss']
+  selector: 'app-indisponibilidades-edit',
+  templateUrl: './indisponibilidades-edit.component.html',
+  styleUrls: ['./indisponibilidades-edit.component.scss']
 })
-export class IndisponibilidadesCreateComponent implements OnInit{
+export class IndisponibilidadesEditComponent implements OnInit{
 
+  id!: number;
   form: FormGroup = new FormGroup({});
+  indisponibilidade!: Indisponibilidade;
 
   constructor(
     private readonly router: Router,
+    private readonly service: IndisponibilidadesService,
     private readonly fb: FormBuilder,
-    private readonly service: IndisponibilidadesService
+    private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.id = +this.route.snapshot.paramMap.get('id')!;
+
     this.form = this.fb.group({
       nome: [null, [Validators.required, Validators.minLength(3)]],
-    })
+    });
 
+    this.service.findById(this.id).subscribe(resp => {
+      this.indisponibilidade = resp
+      this.form.patchValue(this.indisponibilidade)
+    })
   }
 
   save(): void {
@@ -32,11 +41,11 @@ export class IndisponibilidadesCreateComponent implements OnInit{
     if (this.form.valid) {
       const indisponibilidade: Indisponibilidade = this.form.value;
       this.service
-        .create(indisponibilidade)
+        .update(this.id, indisponibilidade)
         .pipe(
           catchError((err) => {
             this.service.showMessage(
-              'Indisponibilidade não pode ser cadastrada!',
+              'Indisponibilidade não pode ser atualizada!',
               true
             );
             return err;
@@ -44,7 +53,7 @@ export class IndisponibilidadesCreateComponent implements OnInit{
         )
         .subscribe((resp) => {
           this.service.showMessage(
-            'Indisponibilidade cadastrada com sucesso!'
+            'Indisponibilidade atualizada com sucesso!'
           );
           this.router.navigate(['/indisponibilidades']);
         });
@@ -57,7 +66,6 @@ export class IndisponibilidadesCreateComponent implements OnInit{
   }
 
   cancel(): void {
-    this.router.navigate(['/indisponibilidades']);
+    this.router.navigate(['/indisponibilidade']);
   }
-
 }
