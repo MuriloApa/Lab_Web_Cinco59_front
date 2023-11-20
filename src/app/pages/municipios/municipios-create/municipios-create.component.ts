@@ -1,13 +1,12 @@
-import { Municipio } from './../../../models/municipio.model';
-import { MunicipiosService } from './../municipios.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EstadosService } from '../../estados/estados.service';
-import { Estado } from 'src/app/models/estado.model';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { catchError } from 'rxjs';
 
+import { Estado } from 'src/app/models/estado.model';
+import { EstadosService } from '../../estados/estados.service';
+import { Municipio } from './../../../models/municipio.model';
+import { MunicipiosService } from './../municipios.service';
 @Component({
   selector: 'app-municipios-create',
   templateUrl: './municipios-create.component.html',

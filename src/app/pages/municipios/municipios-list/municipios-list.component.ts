@@ -21,8 +21,9 @@ import {
   startWith,
   switchMap,
 } from 'rxjs';
-import { Municipio } from 'src/app/models/municipio.model';
 import { MatDialog } from '@angular/material/dialog';
+
+import { Municipio } from 'src/app/models/municipio.model';
 import { MunicipiosDeleteComponent } from '../municipios-delete/municipios-delete.component';
 
 @Component({

@@ -67,6 +67,8 @@ import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.
 import { FuncoesDeleteComponent } from './pages/funcoes/funcoes-delete/funcoes-delete.component';
 import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.component';
 import { GenerosDeleteComponent } from './pages/generos/generos-delete/generos-delete.component';
+import { ServidoresEditComponent } from './pages/servidores/servidores-edit/servidores-edit.component';
+import { ServidoresDeleteComponent } from './pages/servidores/servidores-delete/servidores-delete.component';
 
 
 @NgModule({
@@ -117,6 +119,8 @@ import { GenerosDeleteComponent } from './pages/generos/generos-delete/generos-d
     FuncoesDeleteComponent,
     GenerosEditComponent,
     GenerosDeleteComponent,
+    ServidoresEditComponent,
+    ServidoresDeleteComponent,
 
   ],
   imports: [

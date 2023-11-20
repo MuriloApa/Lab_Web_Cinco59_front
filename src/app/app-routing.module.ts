@@ -32,6 +32,7 @@ import { EstadosEditComponent } from './pages/estados/estados-edit/estados-edit.
 import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indisponibilidades-edit/indisponibilidades-edit.component';
 import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
 import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.component';
+import { ServidoresEditComponent } from './pages/servidores/servidores-edit/servidores-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -103,6 +104,7 @@ const routes: Routes = [
     children: [
       { path: '', component: ServidoresListComponent },
       { path: 'create', component: ServidoresCreateComponent },
+      { path: ':id/edit', component: ServidoresEditComponent}
     ],
   },
 

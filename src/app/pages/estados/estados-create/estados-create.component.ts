@@ -59,7 +59,7 @@ export class EstadosCreateComponent implements OnInit{
           this.estadosService.showMessage(
             'Estado cadastrado com sucesso!'
           );
-          this.router.navigate(['/municipios']);
+          this.router.navigate(['/estados']);
         });
     } else {
       this.estadosService.showMessage(
