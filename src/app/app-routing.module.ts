@@ -33,115 +33,124 @@ import { IndisponibilidadesEditComponent } from './pages/indisponibilidades/indi
 import { FuncoesEditComponent } from './pages/funcoes/funcoes-edit/funcoes-edit.component';
 import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.component';
 import { ServidoresEditComponent } from './pages/servidores/servidores-edit/servidores-edit.component';
+import { PageComponent } from './layout/page/page.component';
+import { AuthenticationGuard } from './guards/Authentication.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-
   { path: 'login', component: LoginComponent },
 
   {
-    path: 'afastamentos',
+    path: '',
+    component: PageComponent,
+    canActivate: [AuthenticationGuard],
+    canActivateChild: [AuthenticationGuard],
     children: [
-      { path: '', component: AfastamentosListComponent },
-      { path: 'create', component: AfastamentosCreateComponent },
+      {
+        path: 'afastamentos',
+        children: [
+          { path: '', component: AfastamentosListComponent },
+          { path: 'create', component: AfastamentosCreateComponent },
+        ],
+      },
 
+      {
+        path: 'paises',
+        children: [
+          { path: '', component: PaisesListComponent },
+          { path: 'create', component: PaisesCreateComponent },
+          { path: ':id/edit', component: PaisesEditComponent },
+        ],
+      },
+
+      {
+        path: 'estados',
+        children: [
+          { path: '', component: EstadosListComponent },
+          { path: 'create', component: EstadosCreateComponent },
+          { path: ':id/edit', component: EstadosEditComponent },
+        ],
+      },
+
+      {
+        path: 'unidades',
+        children: [
+          { path: '', component: UnidadesListComponent },
+          { path: 'create', component: UnidadesCreateComponent },
+        ],
+      },
+
+      {
+        path: 'cargos',
+        children: [
+          { path: '', component: CargosListComponent },
+          { path: 'create', component: CargosCreateComponent },
+        ],
+      },
+
+      {
+        path: 'funcoes',
+        children: [
+          { path: '', component: FuncoesListComponent },
+          { path: 'create', component: FuncoesCreateComponent },
+          { path: ':id/edit', component: FuncoesEditComponent },
+        ],
+      },
+
+      {
+        path: 'designacoes',
+        children: [
+          { path: '', component: DesignacoesListComponent },
+          { path: 'create', component: DesignacoesCreateComponent },
+        ],
+      },
+
+      {
+        path: 'servidores',
+        children: [
+          { path: '', component: ServidoresListComponent },
+          { path: 'create', component: ServidoresCreateComponent },
+          { path: ':id/edit', component: ServidoresEditComponent },
+        ],
+      },
+
+      {
+        path: 'terceirizados',
+        children: [
+          { path: '', component: TerceirizadosListComponent },
+          { path: 'create', component: TerceirizadosCreateComponent },
+        ],
+      },
+
+      {
+        path: 'generos',
+        children: [
+          { path: '', component: GenerosListComponent },
+          { path: 'create', component: GenerosCreateComponent },
+          { path: ':id/edit', component: GenerosEditComponent },
+        ],
+      },
+
+      {
+        path: 'municipios',
+        children: [
+          { path: '', component: MunicipiosListComponent },
+          { path: 'create', component: MunicipiosCreateComponent },
+          { path: ':id/edit', component: MunicipiosEditComponent },
+        ],
+      },
+
+      {
+        path: 'indisponibilidades',
+        children: [
+          { path: '', component: IndisponibilidadesListComponent },
+          { path: 'create', component: IndisponibilidadesCreateComponent },
+          { path: ':id/edit', component: IndisponibilidadesEditComponent },
+        ],
+      },
     ],
   },
 
-  {
-    path: 'paises',
-    children: [
-      { path: '', component: PaisesListComponent },
-      { path: 'create', component: PaisesCreateComponent },
-      { path: ':id/edit', component: PaisesEditComponent },
-    ],
-  },
 
-  {
-    path: 'estados',
-    children: [
-      { path: '', component: EstadosListComponent },
-      { path: 'create', component: EstadosCreateComponent },
-      { path: ':id/edit', component: EstadosEditComponent },
-    ],
-  },
-
-  {
-    path: 'unidades',
-    children: [
-      { path: '', component: UnidadesListComponent },
-      { path: 'create', component: UnidadesCreateComponent },
-    ],
-  },
-
-  {
-    path: 'cargos',
-    children: [
-      { path: '', component: CargosListComponent },
-      { path: 'create', component: CargosCreateComponent },
-    ],
-  },
-
-  {
-    path: 'funcoes',
-    children: [
-      { path: '', component: FuncoesListComponent },
-      { path: 'create', component: FuncoesCreateComponent },
-      { path: ':id/edit', component: FuncoesEditComponent}
-    ],
-  },
-
-  {
-    path: 'designacoes',
-    children: [
-      { path: '', component: DesignacoesListComponent },
-      { path: 'create', component: DesignacoesCreateComponent },
-    ],
-  },
-
-  {
-    path: 'servidores',
-    children: [
-      { path: '', component: ServidoresListComponent },
-      { path: 'create', component: ServidoresCreateComponent },
-      { path: ':id/edit', component: ServidoresEditComponent}
-    ],
-  },
-
-  {
-    path: 'terceirizados',
-    children: [
-      { path: '', component: TerceirizadosListComponent },
-      { path: 'create', component: TerceirizadosCreateComponent },
-    ],
-  },
-
-  {
-    path: 'generos',
-    children: [
-      { path: '', component: GenerosListComponent },
-      { path: 'create', component: GenerosCreateComponent },
-      { path: ':id/edit', component: GenerosEditComponent}
-    ],
-  },
-
-  {
-    path: 'municipios',
-    children: [
-      { path: '', component: MunicipiosListComponent },
-      { path: 'create', component: MunicipiosCreateComponent },
-      { path: ':id/edit', component: MunicipiosEditComponent },
-    ],
-  },
-
-  {
-    path: 'indisponibilidades',
-    children: [
-      { path: '', component: IndisponibilidadesListComponent },
-      { path: 'create', component: IndisponibilidadesCreateComponent },
-      { path: ':id/edit', component: IndisponibilidadesEditComponent}
-    ],
-  },
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -6,14 +6,14 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { NavComponent } from './layout/nav/nav.component';
-import {MatListModule} from '@angular/material/list';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { RedDirective } from './directives/Red.directive';
 import { HomeComponent } from './pages/home/home.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { PaisesListComponent } from './pages/pais/paises-list/paises-list.component';
 import { EstadosListComponent } from './pages/estados/estados-list/estados-list.component';
 import { UnidadesListComponent } from './pages/unidades/unidades-list/unidades-list.component';
@@ -38,21 +38,21 @@ import { EstadosCreateComponent } from './pages/estados/estados-create/estados-c
 import { FuncoesListComponent } from './pages/funcoes/funcoes-list/funcoes-list.component';
 import { MunicipiosListComponent } from './pages/municipios/municipios-list/municipios-list.component';
 import { MunicipiosCreateComponent } from './pages/municipios/municipios-create/municipios-create.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { HttpClientModule } from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatRadioModule} from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { MunicipiosEditComponent } from './pages/municipios/municipios-edit/municipios-edit.component';
 import { MunicipiosDeleteComponent } from './pages/municipios/municipios-delete/municipios-delete.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PageComponent } from './layout/page/page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PaisesEditComponent } from './pages/pais/paises-edit/paises-edit.component';
@@ -69,7 +69,8 @@ import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.
 import { GenerosDeleteComponent } from './pages/generos/generos-delete/generos-delete.component';
 import { ServidoresEditComponent } from './pages/servidores/servidores-edit/servidores-edit.component';
 import { ServidoresDeleteComponent } from './pages/servidores/servidores-delete/servidores-delete.component';
-
+import { JwtAuthInterceptor } from './interceptors/jwtAuth.interceptor';
+import { JsonDateInterceptor } from './interceptors/json-date.interceptor';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,6 @@ import { ServidoresDeleteComponent } from './pages/servidores/servidores-delete/
     GenerosDeleteComponent,
     ServidoresEditComponent,
     ServidoresDeleteComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -146,7 +146,11 @@ import { ServidoresDeleteComponent } from './pages/servidores/servidores-delete/
     MatCheckboxModule,
     MatRadioModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JsonDateInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'pt-BR'}
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

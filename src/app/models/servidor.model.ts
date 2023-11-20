@@ -11,7 +11,7 @@ export interface Servidor extends PessoaFisica{
   dataPosse: Date;
   classe: TipoClasse;
   nomeDeGuerra: string;
-  ativo: boolean;
+  ativo: boolean | string;
   chefe: Servidor;
   servidoresSubordinados: Servidor[];
   terceirizadosSubordinados: Terceirizado[];
