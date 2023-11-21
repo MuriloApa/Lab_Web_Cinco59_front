@@ -10,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavComponent } from './layout/nav/nav.component';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { RedDirective } from './directives/Red.directive';
 import { HomeComponent } from './pages/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -71,6 +70,8 @@ import { ServidoresEditComponent } from './pages/servidores/servidores-edit/serv
 import { ServidoresDeleteComponent } from './pages/servidores/servidores-delete/servidores-delete.component';
 import { JwtAuthInterceptor } from './interceptors/jwtAuth.interceptor';
 import { JsonDateInterceptor } from './interceptors/json-date.interceptor';
+import { AfastamentosEditComponent } from './pages/afastamentos/afastamentos-edit/afastamentos-edit.component';
+import { AfastamentosDeleteComponent } from './pages/afastamentos/afastamentos-delete/afastamentos-delete.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,6 @@ import { JsonDateInterceptor } from './interceptors/json-date.interceptor';
     FooterComponent,
     HeaderComponent,
     NavComponent,
-    RedDirective,
     HomeComponent,
     PaisesListComponent,
     EstadosListComponent,
@@ -122,6 +122,8 @@ import { JsonDateInterceptor } from './interceptors/json-date.interceptor';
     GenerosDeleteComponent,
     ServidoresEditComponent,
     ServidoresDeleteComponent,
+    AfastamentosEditComponent,
+    AfastamentosDeleteComponent,
   ],
   imports: [
     BrowserModule,

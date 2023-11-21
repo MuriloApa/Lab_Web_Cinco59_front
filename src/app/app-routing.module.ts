@@ -35,6 +35,7 @@ import { GenerosEditComponent } from './pages/generos/generos-edit/generos-edit.
 import { ServidoresEditComponent } from './pages/servidores/servidores-edit/servidores-edit.component';
 import { PageComponent } from './layout/page/page.component';
 import { AuthenticationGuard } from './guards/Authentication.guard';
+import { AfastamentosEditComponent } from './pages/afastamentos/afastamentos-edit/afastamentos-edit.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -50,6 +51,7 @@ const routes: Routes = [
         children: [
           { path: '', component: AfastamentosListComponent },
           { path: 'create', component: AfastamentosCreateComponent },
+          { path: ':id/edit', component: AfastamentosEditComponent },
         ],
       },
 

@@ -1,3 +1,4 @@
+import { Role } from "../shared/enums/roles.enum";
 import { PessoaFisica } from "./pessoaFisica.model";
 
 export interface User {
@@ -5,6 +6,7 @@ export interface User {
   email: string;
   password: string;
   pessoaAssociada: PessoaFisica;
+  roles: Role[];
   dateCreated: Date;
   lastUpdate: Date;
   access_token?: string;
