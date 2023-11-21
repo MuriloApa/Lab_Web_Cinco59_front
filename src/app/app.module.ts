@@ -72,6 +72,8 @@ import { JwtAuthInterceptor } from './interceptors/jwtAuth.interceptor';
 import { JsonDateInterceptor } from './interceptors/json-date.interceptor';
 import { AfastamentosEditComponent } from './pages/afastamentos/afastamentos-edit/afastamentos-edit.component';
 import { AfastamentosDeleteComponent } from './pages/afastamentos/afastamentos-delete/afastamentos-delete.component';
+import { UnidadesDeleteComponent } from './pages/unidades/unidades-delete/unidades-delete.component';
+import { UnidadesEditComponent } from './pages/unidades/unidades-edit/unidades-edit.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +126,8 @@ import { AfastamentosDeleteComponent } from './pages/afastamentos/afastamentos-d
     ServidoresDeleteComponent,
     AfastamentosEditComponent,
     AfastamentosDeleteComponent,
+    UnidadesDeleteComponent,
+    UnidadesEditComponent,
   ],
   imports: [
     BrowserModule,

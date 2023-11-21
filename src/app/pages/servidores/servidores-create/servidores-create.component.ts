@@ -206,7 +206,7 @@ export class ServidoresCreateComponent implements OnInit{
   }
 
   addTEmailInput(): void {
-    this.emailsArray.push(this.addEnderecoGroup());
+    this.emailsArray.push(this.addEmailGroup());
   }
 
   removeEmailInput(index: number): void {
@@ -238,7 +238,7 @@ export class ServidoresCreateComponent implements OnInit{
 
     return naoNulos;
   }
-  
+
   removeNulosTelefones(): Telefone[] {
     const naoNulos: Telefone[] = [];
 

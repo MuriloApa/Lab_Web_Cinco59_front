@@ -1,1 +1,68 @@
-<p>afastamentos-edit works!</p>
+<mat-card>
+  <mat-card-header><mat-card-title>Atualizar afastamento</mat-card-title></mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Servidor</mat-label>
+        <mat-select name="servidor" formControlName="servidor" [compareWith]="compareServidor">
+          <mat-option *ngFor="let servidor of servidores" [value]="{id: servidor.id}">
+            {{servidor.nome}}-{{servidor.matricula}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('servidor')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Indisponibilidade</mat-label>
+        <mat-select name="indisponibilidade"  formControlName="indisponibilidade" [compareWith]="compareIndisponibilidade">
+          <mat-option *ngFor="let indisponibilidade of indisponibilidades" [value]="{id: indisponibilidade.id}">
+            {{indisponibilidade.nome}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('indisponibilidade')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Data de início</mat-label>
+        <input matInput type="date" placeholder="Duração do afastamento" formControlName="dataInicio">
+        <mat-error *ngIf="form.get('dataInicio')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label >Duração</mat-label>
+        <input matInput name="nome" type="number" placeholder="Duração do afastamento" formControlName="duracao">
+        <mat-error *ngIf="form.get('duracao')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="form.get('duracao')?.hasError('min')">
+          Duração deve ser de pelo menos 1 dia
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label >Exercício</mat-label>
+        <input matInput name="nome" type="number" placeholder="Número do exercício do afastamento" formControlName="exercicio">
+        <mat-error *ngIf="form.get('duracao')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+      </mat-form-field>
+
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button (click)="save()" color="primary">Atualizar</button>
+
+    <button mat-raised-button (click)="cancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
+

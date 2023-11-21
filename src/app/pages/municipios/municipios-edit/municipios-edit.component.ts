@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError } from 'rxjs';
+
 import { Estado } from 'src/app/models/estado.model';
 import { MunicipiosService } from '../municipios.service';
 import { EstadosService } from '../../estados/estados.service';
 import { Municipio } from 'src/app/models/municipio.model';
-import { catchError } from 'rxjs';
+
 
 @Component({
   selector: 'app-municipios-edit',

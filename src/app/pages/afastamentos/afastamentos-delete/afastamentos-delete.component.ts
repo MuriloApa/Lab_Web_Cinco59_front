@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Afastamento } from 'src/app/models/afastamento.model';
 
 @Component({
   selector: 'app-afastamentos-delete',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AfastamentosDeleteComponent {
 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Afastamento) {}
+
+  ngOnInit(): void {
+
+  }
 }

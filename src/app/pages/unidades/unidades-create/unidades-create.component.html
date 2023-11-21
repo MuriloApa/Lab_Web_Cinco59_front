@@ -1,10 +1,143 @@
 <mat-card>
-  <mat-card-header><mat-card-title>Cadastrar</mat-card-title></mat-card-header>
+  <mat-card-header><mat-card-title>Cadastrar nova unidade</mat-card-title></mat-card-header>
+
+  <mat-card-content>
+    <form [formGroup]="form">
+
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label>Nome</mat-label>
+        <input matInput name="nome" type="text" placeholder="Nome do servidor" formControlName="nome">
+        <mat-error *ngIf="form.get('nome')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="form.get('nome')?.hasError('minlength')">
+          Nome do servidor deve conter ao menos 3 letras
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100%;" class="label-nome">
+        <mat-label>Sigla</mat-label>
+        <input matInput name="nome" type="text" placeholder="Sigla da unidade" formControlName="sigla">
+        <mat-error *ngIf="form.get('sigla')?.hasError('required')">
+          Campo obrigatório
+        </mat-error>
+        <mat-error *ngIf="form.get('sigla')?.hasError('forbiddenName')">
+          Todos os caracteres devem ser maiúsculos
+        </mat-error>
+        <mat-error *ngIf="form.get('sigla')?.hasError('minlength')">
+          Sigla deve conter ao menos 2 letras
+        </mat-error>
+      </mat-form-field>
+
+      <div class="radio" class="campo" style="display: inline;">
+        <mat-label>Formal</mat-label>
+        <mat-radio-group formControlName="formal">
+          <mat-radio-button value="true" checked>Sim</mat-radio-button>
+          <mat-radio-button value="false">Não</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>Unidade Superior Imediata</mat-label>
+        <mat-select name="unidadeSuperiorImediata" formControlName="unidadeSuperiorImediata">
+          <mat-option *ngFor="let unidade of unidades" [value]="{id: unidade.id}">
+            {{unidade.sigla}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="campo">
+        <mat-label>Ordenação Forçada</mat-label>
+        <input matInput name="ordenacaoForcada" placeholder="Número da ordenação forçada" type="number"
+          formControlName="ordenacaoForcada">
+        <mat-error *ngIf="form.get('ordenacaoForcada')?.hasError('required') "></mat-error>
+      </mat-form-field>
+
+      <div class="campo mat-elevation-z3 group" formGroupName="endereco">
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>CEP</mat-label>
+          <input matInput placeholder="CEP" type="text" formControlName="CEP">
+          <mat-error *ngIf="form.get('endereco')?.get('CEP')?.hasError('required')">Campo
+            obrigatório</mat-error>
+          <mat-error *ngIf="form.get('endereco')?.get('CEP')?.hasError('forbiddenName')">
+            CEP deve conter 8 números, sem pontuações
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Logradouro</mat-label>
+          <input matInput placeholder="logradouro" type="text" formControlName="logradouro">
+          <mat-error *ngIf="form.get('logradouro')?.hasError('required')">Campo
+            obrigatório</mat-error>
+          <mat-error *ngIf="form.get('logradouro')?.hasError('minlength')">
+            Logradouro deve conter ao menos 3 caracteres
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Número</mat-label>
+          <input matInput placeholder="Número" type="number" formControlName="numero">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Bairro</mat-label>
+          <input matInput placeholder="bairro" type="text" formControlName="bairro">
+          <mat-error *ngIf="form.get('bairro')?.hasError('required')">Campo
+            obrigatório</mat-error>
+            <mat-error *ngIf="form.get('bairro')?.hasError('minlength')">
+              Bairro deve conter ao menos 3 caracteres
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Observação</mat-label>
+          <input matInput placeholder="Observação" type="text" formControlName="observacao">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Município</mat-label>
+          <mat-select placeholder="Município" formControlName="municipio">
+            <mat-option *ngFor="let municipio of municipios" [value]="{id: municipio.id}">
+              {{municipio.nome}}-{{municipio.estado.sigla}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('municipio')?.hasError('required')"></mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="campo mat-elevation-z3 group" formArrayName="telefones">
+        <div *ngFor="let telefone of telefonesArray.controls; let i = index">
+          <div formGroupName="{{i}}">
+            <mat-form-field appearance="outline" class="campo">
+              <mat-label>Telefone</mat-label>
+              <input matInput placeholder="Número do telefone" type="text" formControlName="numero">
+              <mat-error *ngIf="form.get('telefones')?.get(i.toString())?.get('numero')?.hasError('forbiddenName')">
+                Telefone deve possuir de 8 a 11 números
+              </mat-error>
+            </mat-form-field>
+            <button mat-icon-button color="warn" (click)="removeTelefoneInput(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" mat-raised-button color="primary" (click)="addTelefoneInput()">Adicionar telefone</button>
+      </div>
+
+      <div class="campo mat-elevation-z3 group" formGroupName="email">
+        <mat-form-field appearance="outline" class="campo">
+          <mat-label>Endereço de email</mat-label>
+          <input matInput placeholder="Email" type="email" formControlName="endereco">
+          <mat-error *ngIf="form.get('email')?.get('endereco')?.hasError('required')">Campo
+            obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+
   <mat-card-actions>
     <button mat-raised-button (click)="save()" color="primary">Cadastrar</button>
 
     <button mat-raised-button (click)="cancel()">Cancelar</button>
   </mat-card-actions>
 </mat-card>
-
-
