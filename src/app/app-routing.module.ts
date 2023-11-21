@@ -50,16 +50,33 @@ const routes: Routes = [
     children: [
       {
         path: 'afastamentos',
+        data: { Roles: [Role.ADMIN, Role.COMUM] },
+        canActivate: [AuthorizationGuard],
         children: [
-          { path: '', component: AfastamentosListComponent },
-          { path: 'create', component: AfastamentosCreateComponent },
-          { path: ':id/edit', component: AfastamentosEditComponent },
+          {
+            path: '',
+            component: AfastamentosListComponent,
+            data: { Roles: [Role.COMUM, Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
+          {
+            path: 'create',
+            component: AfastamentosCreateComponent,
+            data: { Roles: [Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
+          {
+            path: ':id/edit',
+            component: AfastamentosEditComponent,
+            data: { Roles: [Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
         ],
       },
 
       {
         path: 'paises',
-        data: {Roles: [Role.ADMIN]},
+        data: { Roles: [Role.ADMIN] },
         canActivate: [AuthorizationGuard],
         canActivateChild: [AuthorizationGuard],
         children: [
@@ -71,6 +88,9 @@ const routes: Routes = [
 
       {
         path: 'estados',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: EstadosListComponent },
           { path: 'create', component: EstadosCreateComponent },
@@ -80,6 +100,9 @@ const routes: Routes = [
 
       {
         path: 'unidades',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: UnidadesListComponent },
           { path: 'create', component: UnidadesCreateComponent },
@@ -88,6 +111,9 @@ const routes: Routes = [
 
       {
         path: 'cargos',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: CargosListComponent },
           { path: 'create', component: CargosCreateComponent },
@@ -96,6 +122,9 @@ const routes: Routes = [
 
       {
         path: 'funcoes',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: FuncoesListComponent },
           { path: 'create', component: FuncoesCreateComponent },
@@ -105,6 +134,9 @@ const routes: Routes = [
 
       {
         path: 'designacoes',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: DesignacoesListComponent },
           { path: 'create', component: DesignacoesCreateComponent },
@@ -113,23 +145,55 @@ const routes: Routes = [
 
       {
         path: 'servidores',
+        data: { Roles: [Role.ADMIN, Role.COMUM] },
+        canActivate: [AuthorizationGuard],
         children: [
-          { path: '', component: ServidoresListComponent },
-          { path: 'create', component: ServidoresCreateComponent },
-          { path: ':id/edit', component: ServidoresEditComponent },
+          {
+            path: '',
+            component: ServidoresListComponent,
+            data: { Roles: [Role.ADMIN, Role.COMUM] },
+            canActivate: [AuthorizationGuard],
+          },
+          {
+            path: 'create',
+            component: ServidoresCreateComponent,
+            data: { Roles: [Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
+          {
+            path: ':id/edit',
+            component: ServidoresEditComponent,
+            data: { Roles: [Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
         ],
       },
 
       {
         path: 'terceirizados',
+        data: { Roles: [Role.ADMIN, Role.COMUM] },
+        canActivate: [AuthorizationGuard],
         children: [
-          { path: '', component: TerceirizadosListComponent },
-          { path: 'create', component: TerceirizadosCreateComponent },
+          {
+            path: '',
+            component: TerceirizadosListComponent,
+            data: { Roles: [Role.ADMIN, Role.COMUM] },
+            canActivate: [AuthorizationGuard],
+          },
+          {
+            path: 'create',
+            component: TerceirizadosCreateComponent,
+            data: { Roles: [Role.ADMIN] },
+            canActivate: [AuthorizationGuard],
+          },
         ],
       },
 
       {
         path: 'generos',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: GenerosListComponent },
           { path: 'create', component: GenerosCreateComponent },
@@ -139,6 +203,9 @@ const routes: Routes = [
 
       {
         path: 'municipios',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: MunicipiosListComponent },
           { path: 'create', component: MunicipiosCreateComponent },
@@ -148,6 +215,9 @@ const routes: Routes = [
 
       {
         path: 'indisponibilidades',
+        data: { Roles: [Role.ADMIN] },
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: IndisponibilidadesListComponent },
           { path: 'create', component: IndisponibilidadesCreateComponent },
@@ -156,8 +226,6 @@ const routes: Routes = [
       },
     ],
   },
-
-
 ];
 
 @NgModule({
