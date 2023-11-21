@@ -100,4 +100,8 @@ export class AuthenticationService {
     }
     return user;
   }
+
+  getUserRoles(){
+    return this.getUserStorage(false)?.roles
+  }
 }

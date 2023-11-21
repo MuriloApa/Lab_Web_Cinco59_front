@@ -36,6 +36,8 @@ import { ServidoresEditComponent } from './pages/servidores/servidores-edit/serv
 import { PageComponent } from './layout/page/page.component';
 import { AuthenticationGuard } from './guards/Authentication.guard';
 import { AfastamentosEditComponent } from './pages/afastamentos/afastamentos-edit/afastamentos-edit.component';
+import { Role } from './shared/enums/roles.enum';
+import { AuthorizationGuard } from './guards/Authorization.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -57,6 +59,9 @@ const routes: Routes = [
 
       {
         path: 'paises',
+        data: {Roles: [Role.ADMIN]},
+        canActivate: [AuthorizationGuard],
+        canActivateChild: [AuthorizationGuard],
         children: [
           { path: '', component: PaisesListComponent },
           { path: 'create', component: PaisesCreateComponent },
