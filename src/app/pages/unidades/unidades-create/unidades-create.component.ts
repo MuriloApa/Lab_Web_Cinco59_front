@@ -52,7 +52,7 @@ export class UnidadesCreateComponent implements OnInit{
       nome: [null, [Validators.required, Validators.minLength(3)]],
       sigla: [null, [Validators.required, Validators.minLength(2), regexValidator(/^[A-Z]+$/)]],
       formal: [null, [Validators.required]],
-      unidadeSuperiorImediata: [null, [Validators.required]],
+      unidadeSuperiorImediata: [null],
       ordenacaoForcada: [null, [ Validators.required]],
       endereco: this.fb.group({
         CEP: ['', [Validators.required, regexValidator(/^\d{8}/)]],

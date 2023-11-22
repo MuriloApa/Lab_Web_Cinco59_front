@@ -13,8 +13,8 @@ export interface Servidor extends PessoaFisica{
   nomeDeGuerra: string;
   ativo: boolean | string;
   chefe: Servidor;
-  servidoresSubordinados: Servidor[];
-  terceirizadosSubordinados: Terceirizado[];
+  servidoresSubordinados?: Servidor[];
+  terceirizadosSubordinados?: Terceirizado[];
   telefones?: Telefone[];
   enderecos?: Endereco[];
   emails?: Email[];

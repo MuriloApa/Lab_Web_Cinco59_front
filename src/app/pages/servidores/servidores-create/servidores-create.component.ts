@@ -130,7 +130,7 @@ export class ServidoresCreateComponent implements OnInit{
   }
 
   addServidorInput(): void {
-    this.servidoresSubordinados.push(this.fb.control('', [Validators.required]));
+    this.servidoresSubordinados.push(this.fb.control(null, [Validators.required]));
     console.log(this.form.value)
   }
 
@@ -280,12 +280,21 @@ export class ServidoresCreateComponent implements OnInit{
     this.form.markAllAsTouched();
     if (this.form.valid) {
       let servidor: Servidor = this.form.value;
-      servidor.servidoresSubordinados = this.removeNulosServidores();
-      servidor.terceirizadosSubordinados = this.removeNulosTerceirizados();
       servidor.telefones = this.removeNulosTelefones();
       servidor.enderecos = this.removeNulosEnderecos();
       servidor.emails = this.removeNulosEmails();
       servidor.ativo = servidor.ativo === 'true';
+
+      servidor.servidoresSubordinados = this.removeNulosServidores();
+      if (servidor.servidoresSubordinados.length === 0) {
+        let { servidoresSubordinados,  ...aux} = servidor;
+        servidor = aux;
+      }
+      servidor.terceirizadosSubordinados = this.removeNulosTerceirizados();
+      if (servidor.terceirizadosSubordinados.length === 0) {
+        let { terceirizadosSubordinados,  ...aux} = servidor;
+        servidor = aux;
+      }
       console.log(servidor)
       this.service
         .create(servidor)
